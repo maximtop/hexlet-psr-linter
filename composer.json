@@ -1,0 +1,30 @@
+{
+  "name": "maximtop/hexlet-psr-linter",
+  "bin": ["bin/hexlet-psr-linter"],
+  "type": "library",
+  "description": "PHP PSR linter library",
+  "keywords": [
+    "PHP",
+    "PSR",
+    "linter"
+  ],
+  "homepage": "https://github.com/maximtop/hexlet-psr-linter",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Maxim Topciu",
+      "email": "maximtop@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "squizlabs/php_codesniffer": "2.*",
+    "codeclimate/php-test-reporter": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpPackage\\": "src/"
+    }
+  },
+  "require": {}
+}
