@@ -23,8 +23,5 @@ class FunctionNameCheckTest extends \PHPUnit_Framework_TestCase
         echo(checkFunctionName($key));
         $this->assertEquals(checkFunctionName($key), $value, $key);
     }
-
     }
-
-
 }
