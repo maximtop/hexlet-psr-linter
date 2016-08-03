@@ -4,21 +4,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use PhpParser\ParserFactory;
-
-$parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
+use function HexletPsrLinter\getFunctions;
 
 $filename = $argv[1];
-$file = file_get_contents($filename);
+$fileContent = file_get_contents($filename);
 
-try {
-    $stmts = $parser->parse($file);
-    print_r($stmts);
-} catch (Error $e) {
-    echo 'Parse Error: ', $e->getMessage();
-}
-//
-//
-//var_dump($file);
-//var_dump($argv[1]);
-
+echo HexletPsrLinter\getFunctions($fileContent);
