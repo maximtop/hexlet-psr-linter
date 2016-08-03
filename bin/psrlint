@@ -4,11 +4,21 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-//echo 'what is your name?: ';
-//$name = trim(fgets(STDIN));
-//
-//$user = new PhpPackage\User($name);
-//
-//var_dump($user);
+use PhpParser\ParserFactory;
 
-print_r($argv[]);
+$parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7);
+
+$filename = $argv[1];
+$file = file_get_contents($filename);
+
+try {
+    $stmts = $parser->parse($file);
+    print_r($stmts);
+} catch (Error $e) {
+    echo 'Parse Error: ', $e->getMessage();
+}
+//
+//
+//var_dump($file);
+//var_dump($argv[1]);
+
