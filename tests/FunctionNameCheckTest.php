@@ -20,7 +20,7 @@ class FunctionNameCheckTest extends \PHPUnit_Framework_TestCase
             'Camelcase' => false
         ];
         foreach ($testArray as $key => $value) {
-        $this->assertEquals(checkFunctionName($key), $value, $key);
-    }
+            $this->assertEquals(checkFunctionName($key), $value, $key);
+        }
     }
 }
