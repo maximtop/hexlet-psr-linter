@@ -20,5 +20,4 @@ class Visitor extends NodeVisitorAbstract
     {
         return $this->listOfFunctionsNames;
     }
-
 }
