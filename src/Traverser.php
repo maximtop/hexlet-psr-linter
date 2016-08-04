@@ -14,10 +14,11 @@ function getTree($content)
 
 function getFunctions($content)
 {
+
     $tree = getTree($content);
     $traverser = new NodeTraverser;
     $visitor = new Visitor;
     $traverser->addVisitor($visitor);
     $stmts = $traverser->traverse($tree);
-    return $visitor->getFunctionsNames();
+    return $visitor->getErrorString();
 }

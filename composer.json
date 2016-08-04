@@ -25,7 +25,8 @@
   "autoload": {
     "psr-4": {
       "HexletPsrLinter\\": "src/"
-    }
+    },
+    "files": ["src/Traverser.php", "src/FunctionNameCheck.php"]
   },
   "require": {}
 }

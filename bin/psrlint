@@ -9,4 +9,5 @@ use function \HexletPsrLinter\getFunctions;
 $filename = $argv[1];
 $fileContent = file_get_contents($filename);
 
-echo getFunctions($fileContent);
+print_r(getFunctions($fileContent));
+

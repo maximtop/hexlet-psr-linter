@@ -29,5 +29,13 @@ class MyOwnTest
     }
 }
 
+function camelCase() {
+    return true;
+}
+
+function camel_Case() {
+    return false;
+}
+
 $name = 'maxim';
 echo $name;
