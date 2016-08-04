@@ -28,5 +28,7 @@
     },
     "files": ["src/Traverser.php", "src/FunctionNameCheck.php"]
   },
-  "require": {}
+  "require": {
+    "league/climate": "^3.2"
+  }
 }

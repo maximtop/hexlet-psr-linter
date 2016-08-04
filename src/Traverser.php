@@ -20,5 +20,6 @@ function getFunctions($content)
     $visitor = new Visitor;
     $traverser->addVisitor($visitor);
     $stmts = $traverser->traverse($tree);
-    return $visitor->getErrorString();
+//    return $visitor->getErrorString();
+    return $visitor->getFunctionsNames();
 }

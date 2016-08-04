@@ -8,6 +8,5 @@ use function \HexletPsrLinter\getFunctions;
 
 $filename = $argv[1];
 $fileContent = file_get_contents($filename);
-
-print_r(getFunctions($fileContent));
-
+$climate = new League\CLImate\CLImate;
+$climate->columns(getFunctions($fileContent));
