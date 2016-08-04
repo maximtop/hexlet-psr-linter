@@ -28,10 +28,10 @@ class Visitor extends NodeVisitorAbstract
     public function getErrorString()
     {
         $error_list = $this->getFunctionsNames();
-        return array_reduce($error_list, function($acc, $item) {
+        $string = array_reduce($error_list, function ($acc, $item) {
             $acc .= $item[1] . "\t" . $item[0] . PHP_EOL;
             return $acc;
         }, '');
-
+        return $string;
     }
 }
