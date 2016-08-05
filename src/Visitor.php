@@ -13,11 +13,11 @@ class Visitor extends NodeVisitorAbstract
     {
         $nodeClass = get_class($node);
         if ($nodeClass == "PhpParser\\Node\\Stmt\\ClassMethod" && checkFunctionName($node->name) != true) {
-            $error_string = "Method name is not in camel caps format";
-            $this->errorFunctions[] = [$node->getLine(), "<red>error</red>", $error_string, $node->name];
+            $errorString = "Method name is not in camel caps format";
+            $this->errorFunctions[] = [$node->getLine(), "<red>error</red>", $errorString, $node->name];
         } elseif ($nodeClass == "PhpParser\\Node\\Stmt\\Function_" && checkFunctionName($node->name) != true) {
-            $error_string = "Function name is not in camel caps format";
-            $this->errorFunctions[] = [$node->getLine(), "<red>error</red>", $error_string, $node->name];
+            $errorString = "Function name is not in camel caps format";
+            $this->errorFunctions[] = [$node->getLine(), "<red>error</red>", $errorString, $node->name];
         }
     }
 

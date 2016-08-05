@@ -6,7 +6,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use function \HexletPsrLinter\getFunctions;
 
-$filename = $argv[1];
+
+$cmd = new Commando\Command();
+$cmd->option()->require()->describedAs("Path to the file you want to check");
+$filename = $cmd[0];
 $fileContent = file_get_contents($filename);
 $climate = new League\CLImate\CLImate;
 $climate->out($filename);
