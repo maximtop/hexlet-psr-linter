@@ -25,5 +25,4 @@ class Visitor extends NodeVisitorAbstract
     {
         return $this->errorFunctions;
     }
-
 }
