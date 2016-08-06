@@ -15,16 +15,12 @@ class FunctionNameCheckTest extends \PHPUnit_Framework_TestCase
             'camelCase' => true,
             'camelCaseCase' => true,
             'CamelCase' => false,
-            'camelCCase'=> false,
+            'camelCCase' => false,
             'camel_case' => false,
             'Camelcase' => false
         ];
-        foreach ($testArray as $key=>$value) {
-            echo(checkFunctionName($key));
+        foreach ($testArray as $key => $value) {
             $this->assertEquals(checkFunctionName($key), $value, $key);
         }
-
     }
-
-
 }

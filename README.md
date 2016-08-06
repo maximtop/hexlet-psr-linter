@@ -6,11 +6,9 @@
 [![Issue Count](https://codeclimate.com/github/maximtop/hexlet-psr-linter/badges/issue_count.svg)](https://codeclimate.com/github/maximtop/hexlet-psr-linter)
 [![Test Coverage](https://codeclimate.com/github/maximtop/hexlet-psr-linter/badges/coverage.svg)](https://codeclimate.com/github/maximtop/hexlet-psr-linter/coverage)
 
-### From Scratch
+### How to use
 
-1. composer init
-1. touch README.md
-1. mkdir src
+1. ./bin/psrlint yourfile.php
 
 ### Test Coverage
 

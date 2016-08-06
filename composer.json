@@ -19,12 +19,17 @@
   "require-dev": {
     "phpunit/phpunit": "*",
     "squizlabs/php_codesniffer": "2.*",
-    "codeclimate/php-test-reporter": "dev-master"
+    "codeclimate/php-test-reporter": "dev-master",
+    "nikic/php-parser": "2.*"
   },
   "autoload": {
     "psr-4": {
-      "PhpPackage\\": "src/"
-    }
+      "HexletPsrLinter\\": "src/"
+    },
+    "files": ["src/Traverser.php", "src/FunctionNameCheck.php"]
   },
-  "require": {}
+  "require": {
+    "league/climate": "^3.2",
+    "nategood/commando": "^0.2.8"
+  }
 }
