@@ -4,18 +4,14 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use function \HexletPsrLinter\getFunctions;
-
+use function \HexletPsrLinter\returnResult;
 
 $cmd = new Commando\Command();
-$cmd->option()->require()->describedAs("Path to the file you want to check");
-$filename = $cmd[0];
-$fileContent = file_get_contents($filename);
-$climate = new League\CLImate\CLImate;
-$climate->out($filename);
-if(is_array(getFunctions($fileContent))) {
-    $climate->columns(getFunctions($fileContent));
-} else {
-    $climate->out(getFunctions($fileContent));
-}
+$cmd->option()
+    ->require()
+    ->describedAs("Path to the file you want to check");
+$path = $cmd[0];
+exit(returnResult($path));
+
+
 

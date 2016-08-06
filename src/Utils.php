@@ -17,3 +17,19 @@ function getFilesByPath($path)
     }
     return $files;
 }
+
+function returnResult($path)
+{
+    $files = getFilesByPath($path);
+    foreach ($files as $filename) {
+        $fileContent = file_get_contents($filename);
+        $climate = new \League\CLImate\CLImate;
+        $climate->out($filename);
+        if (is_array(getFunctions($fileContent))) {
+            $climate->columns(getFunctions($fileContent));
+        } else {
+            $climate->out(getFunctions($fileContent));
+        }
+        $climate->out("\n");
+    }
+}
