@@ -12,7 +12,6 @@ class FunctionsWithErrors
     public function camel_first_case()
     {
         return false;
-
     }
 
     public function camelSecondCase()
