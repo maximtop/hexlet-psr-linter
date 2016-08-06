@@ -4,6 +4,8 @@ namespace HexletPsrLinter;
 
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
+use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Function_;
 
 class Visitor extends NodeVisitorAbstract
 {
@@ -12,10 +14,10 @@ class Visitor extends NodeVisitorAbstract
     public function leaveNode(Node $node)
     {
         $nodeClass = get_class($node);
-        if ($nodeClass == "PhpParser\\Node\\Stmt\\ClassMethod" && checkFunctionName($node->name) != true) {
+        if ($node instanceof ClassMethod && checkFunctionName($node->name) != true) {
             $errorString = "Method name is not in camel caps format";
             $this->errorFunctions[] = [$node->getLine(), "<red>error</red>", $errorString, $node->name];
-        } elseif ($nodeClass == "PhpParser\\Node\\Stmt\\Function_" && checkFunctionName($node->name) != true) {
+        } elseif ($node instanceof Function_ && checkFunctionName($node->name) != true) {
             $errorString = "Function name is not in camel caps format";
             $this->errorFunctions[] = [$node->getLine(), "<red>error</red>", $errorString, $node->name];
         }
@@ -23,6 +25,9 @@ class Visitor extends NodeVisitorAbstract
 
     public function getErrorFunctions()
     {
+        if(count($this->errorFunctions) <= 0) {
+            return "There is no errors in functions or methods names";
+        }
         return $this->errorFunctions;
     }
 }

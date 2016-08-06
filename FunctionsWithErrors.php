@@ -1,6 +1,6 @@
 <?php
 
-class MyOwnTest
+class FunctionsWithErrors
 {
 
     public function camelCase()
