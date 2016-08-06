@@ -25,7 +25,7 @@ class Visitor extends NodeVisitorAbstract
 
     public function getErrorFunctions()
     {
-        if(count($this->errorFunctions) <= 0) {
+        if (count($this->errorFunctions) <= 0) {
             return "There is no errors in functions or methods names";
         }
         return $this->errorFunctions;
