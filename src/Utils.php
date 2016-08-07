@@ -24,7 +24,7 @@ function printReport($path)
 
     foreach ($files as $filename) {
         $fileContent = file_get_contents($filename);
-        $errorList = getFunctions($fileContent);
+        $errorList = getErrors($fileContent);
         $climate = new \League\CLImate\CLImate;
         $climate->out($filename);
 
