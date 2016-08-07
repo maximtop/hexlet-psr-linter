@@ -26,10 +26,15 @@
     "psr-4": {
       "HexletPsrLinter\\": "src/"
     },
-    "files": ["src/Traverser.php", "src/FunctionNameCheck.php"]
+    "files": [
+      "src/Traverser.php",
+      "src/FunctionNameCheck.php",
+      "src/Utils.php"
+    ]
   },
   "require": {
     "league/climate": "^3.2",
-    "nategood/commando": "^0.2.8"
+    "nategood/commando": "^0.2.8",
+    "mikey179/vfsStream": "^1.6"
   }
 }

@@ -12,13 +12,12 @@ function getTree($content)
     return $stmts;
 }
 
-function getFunctions($content)
+function lint($content)
 {
-
     $tree = getTree($content);
     $traverser = new NodeTraverser;
     $visitor = new Visitor;
     $traverser->addVisitor($visitor);
     $stmts = $traverser->traverse($tree);
-    return $visitor->getErrorFunctions();
+    return $visitor->getErrors();
 }
