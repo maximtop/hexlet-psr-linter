@@ -18,7 +18,7 @@ function getFilesByPath($path)
     return $files;
 }
 
-function createOutput($path)
+function printReport($path)
 {
     $files = getFilesByPath($path);
     foreach ($files as $filename) {
