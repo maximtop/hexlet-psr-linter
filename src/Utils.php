@@ -18,7 +18,7 @@ function getFilesByPath($path)
     return $files;
 }
 
-function returnResult($path)
+function createOutput($path)
 {
     $files = getFilesByPath($path);
     foreach ($files as $filename) {
@@ -32,4 +32,6 @@ function returnResult($path)
         }
         $climate->out("\n");
     }
+
+    return 1;
 }

@@ -4,14 +4,14 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use function \HexletPsrLinter\returnResult;
+use function \HexletPsrLinter\createOutput;
 
 $cmd = new Commando\Command();
 $cmd->option()
     ->require()
     ->describedAs("Path to the file you want to check");
 $path = $cmd[0];
-exit(returnResult($path));
+exit(createOutput($path));
 
 
 
