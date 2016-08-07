@@ -13,6 +13,7 @@ class Visitor extends NodeVisitorAbstract
 
     public function leaveNode(Node $node)
     {
+        //think how to check here variables names
         if ($node instanceof ClassMethod && checkFunctionName($node->name) != true) {
             $errorString = "Method name is not in camel caps format";
             $this->errors[] = [$node->getLine(), "<red>error</red>", $errorString, $node->name];
