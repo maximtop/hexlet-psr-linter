@@ -12,7 +12,7 @@ function getTree($content)
     return $stmts;
 }
 
-function getErrors($content)
+function getAllErrors($content)
 {
     $tree = getTree($content);
     $traverser = new NodeTraverser;
