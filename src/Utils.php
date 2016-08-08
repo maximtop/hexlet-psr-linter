@@ -36,5 +36,4 @@ function printReport($path)
         }
         $climate->out("\n");
     }
-    return 0;
 }
