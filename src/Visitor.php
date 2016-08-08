@@ -23,6 +23,8 @@ class Visitor extends NodeVisitorAbstract
         }
     }
 
+
+
     public function getErrors()
     {
         if (count($this->errors) <= 0) {
