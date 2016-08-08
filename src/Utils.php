@@ -29,10 +29,10 @@ function printReport($path)
         $climate = new \League\CLImate\CLImate;
         $climate->out($filename);
 
-        if (is_array($errorList)) {
+        if (count($errorList) > 0) {
             $climate->columns($errorList);
         } else {
-            $climate->out($errorList);
+            $climate->out("<green>No errors</green>");
         }
         $climate->out("\n");
     }
