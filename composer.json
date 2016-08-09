@@ -28,7 +28,8 @@
     },
     "files": [
       "src/Traverser.php",
-      "src/Checkers.php",
+      "src/Checkers/FunctionNameChecker.php",
+      "src/Checkers/VariableNameChecker.php",
       "src/Utils.php"
     ]
   },
