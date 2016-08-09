@@ -5,8 +5,9 @@ namespace HexletPsrLinter;
 function getFilesByPath($path)
 {
     $files = [];
-    $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path));
+
     if (is_dir($path)) {
+        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path));
         foreach ($iterator as $item) {
             if ($item->isFile() && $item->getExtension() == 'php') {
                 $files[] = $item->getPathname();
@@ -28,12 +29,11 @@ function printReport($path)
         $climate = new \League\CLImate\CLImate;
         $climate->out($filename);
 
-        if (is_array($errorList)) {
+        if (count($errorList) > 0) {
             $climate->columns($errorList);
         } else {
-            $climate->out($errorList);
+            $climate->out("<green>No errors</green>");
         }
         $climate->out("\n");
     }
-    return 1;
 }

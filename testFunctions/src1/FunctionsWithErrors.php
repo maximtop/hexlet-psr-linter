@@ -38,3 +38,5 @@ function camel_Case() {
 
 $name = 'maxim';
 echo $name;
+
+$testVARAIBLE = 'test';
