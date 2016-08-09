@@ -2,7 +2,8 @@
 
 namespace HexletPsrLinter;
 
-use function HexletPsrLinter\checkFunctionName;
+use PhpParser\Node\Stmt\Function_;
+use PhpParser\Node\Expr\Variable;
 
 class CheckersTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,16 +12,13 @@ class CheckersTest extends \PHPUnit_Framework_TestCase
     {
 
         $testArray = [
-            'camelcase' => true,
-            'camelCase' => true,
-            'camelCaseCase' => true,
-            'CamelCase' => false,
-            'camelCCase' => false,
-            'camel_case' => false,
-            'Camelcase' => false
+            'CamelCase' => ["-1", "<red>error</red>", "Function name is not in camel caps format", 'CamelCase'],
+            'camelCCase' => ["-1", "<red>error</red>", "Function name is not in camel caps format", 'camelCCase'],
+            'camel_case' => ["-1", "<red>error</red>", "Function name is not in camel caps format", 'camel_case'],
+            'Camelcase' => ["-1", "<red>error</red>", "Function name is not in camel caps format", 'Camelcase'],
         ];
         foreach ($testArray as $key => $value) {
-            $this->assertEquals(checkFunctionName($key), $value, $key);
+            $this->assertEquals(checkFunctionNames(new Function_($key)), $value, $key);
         }
     }
 
@@ -28,16 +26,23 @@ class CheckersTest extends \PHPUnit_Framework_TestCase
     {
 
         $testArray = [
-            'camelcase' => true,
-            'camelCase' => true,
-            'camelCaseCase' => true,
-            'CamelCase' => false,
-            'camelCCase' => false,
-            'camel_case' => false,
-            'Camelcase' => false
+            "CamelCase" => ["-1", "<yellow>warning</yellow>", "Variable name is not in camel caps format", 'CamelCase'],
+            "camelCCase" => [
+                "-1",
+                "<yellow>warning</yellow>",
+                "Variable name is not in camel caps format",
+                'camelCCase'
+            ],
+            "camel_case" => [
+                "-1",
+                "<yellow>warning</yellow>",
+                "Variable name is not in camel caps format",
+                'camel_case'
+            ],
+            "Camelcase" => ["-1", "<yellow>warning</yellow>", "Variable name is not in camel caps format", 'Camelcase'],
         ];
         foreach ($testArray as $key => $value) {
-            $this->assertEquals(checkVariableName($key), $value, $key);
+            $this->assertEquals(checkVariableNames(new Variable($key)), $value, $key);
         }
     }
 }
