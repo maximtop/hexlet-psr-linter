@@ -2,14 +2,11 @@
 
 namespace HexletPsrLinter;
 
-use function HexletPsrLinter\checkFunctionName;
-
 class CheckersTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testCheckFunctionName()
     {
-
         $testArray = [
             'camelcase' => true,
             'camelCase' => true,
@@ -26,7 +23,6 @@ class CheckersTest extends \PHPUnit_Framework_TestCase
 
     public function testCheckVariableName()
     {
-
         $testArray = [
             'camelcase' => true,
             'camelCase' => true,
